@@ -6,15 +6,15 @@ jobs:
     name: Building
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: docker.pkg.github.com/garigari-kun/gha_training/mysql:latest
-        credentials:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_TOKEN }}
-        env:
-          MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    # services:
+    #   mysql:
+    #     image: docker.pkg.github.com/garigari-kun/gha_training/mysql:latest
+    #     credentials:
+    #       username: ${{ github.actor }}
+    #       password: ${{ secrets.GH_TOKEN }}
+    #     env:
+    #       MYSQL_USER: root
+    #       MYSQL_ALLOW_EMPTY_PASSWORD: yes
     container:
       image: ruby:2.7.1
       env:
@@ -23,3 +23,7 @@ jobs:
       - name: Greeting
         run: |
           echo Hello;
+      - name: Setup Mysql from steps
+        run: |
+          docker login docker.pkg.github.com -u ${{ github.actor }} -p ${{ secrets.GH_TOKEN }}
+          docker pull docker.pkg.github.com/garigari-kun/gha_training/mysql:latest
