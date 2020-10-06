@@ -1,0 +1,18 @@
+name: CI
+on: push
+
+jobs:
+  build:
+    name: Building
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    container:
+      image: ruby:2.7.1
+      env:
+        RAILS_ENV: test
