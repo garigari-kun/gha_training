@@ -23,7 +23,9 @@ jobs:
       - name: Greeting
         run: |
           echo Hello;
-      - name: Setup Mysql from steps
+      - name: Login
         run: |
           docker login docker.pkg.github.com -u ${{ github.actor }} -p ${{ secrets.GH_TOKEN }}
+      - name: Pull
+        run: |
           docker pull docker.pkg.github.com/garigari-kun/gha_training/mysql:latest
