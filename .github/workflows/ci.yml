@@ -15,10 +15,10 @@ jobs:
     #     env:
     #       MYSQL_USER: root
     #       MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    container:
-      image: ruby:2.7.1
-      env:
-        RAILS_ENV: test
+    # container:
+    #   image: ruby:2.7.1
+    #   env:
+    #     RAILS_ENV: test
     steps:
       - name: Greeting
         run: |
