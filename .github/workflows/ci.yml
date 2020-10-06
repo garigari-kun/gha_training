@@ -9,9 +9,9 @@ jobs:
     services:
       mysql:
         image: docker.pkg.github.com/garigari-kun/gha_training/mysql:latest
-        # credentials:
-        #   username: ${{ github.actor }}
-        #   password: ${{ secrets.GH_TOKEN }}
+        credentials:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_TOKEN }}
         env:
           MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
