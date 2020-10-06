@@ -16,7 +16,7 @@ jobs:
       image: ruby:2.7.1
       env:
         RAILS_ENV: test
-    step:
+    steps:
       - name: Greeting
         run: |
           echo Hello;
